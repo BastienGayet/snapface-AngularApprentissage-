@@ -1,0 +1,11 @@
+<div class="landing-block">
+  <form  #emailForm="ngForm" (ngSubmit)="onSumbitForm(emailForm)">
+    <label for="emailInput"> Inscrivez-vous pour recevoir notre newsletter !</label>
+    <input id="emailInput" name="userEmail" type="email" [(ngModel)]="userEmail">  <!-- NgModel permet de synchroniser les données entre le ts et html -->
+    <button type="submit" >Ok!</button>
+  </form>
+  <img src="/assets/snapface-logo.png" alt="Snapface logo">
+  <div class="landing-links">
+    <button (click)="onContinue()">Continuer vers Snapface</button>
+  </div>
+</div>

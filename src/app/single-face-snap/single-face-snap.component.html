@@ -1,0 +1,41 @@
+<div class="face-snap-card" [ngClass]="{snapped:userHasSnapped}">
+    <h2>{{ faceSnap.title | uppercase }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdAt | date: 'longDate'}}</p>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">  <!-- On lie  l'attribut avec []-->
+    <p>{{faceSnap.description}}</p>
+    <p>
+        <button (click)="onSnap()">{{snapButtonText}}</button> <!-- On lie l'evenement avec les () -->
+        <span [ngStyle]="{color: 'rgb(0,' + faceSnap.snaps + ',0)'}">  🤌 {{ faceSnap.snaps }}</span>
+    </p>
+
+    @if (faceSnap.Location) {
+        <p>Localisation : {{faceSnap.Location}}</p>
+    }@else {
+        <p>Localisation non spécifiée</p>
+    }
+
+
+    <h2> {{ faceSnap.title | uppercase}}</h2>
+    <a routerLink="/facesnaps">BACK</a>
+</div>
+
+
+
+
+
+<!-- Pourquoi double accolade ?  
+Délimiteur de syntaxe Angular : Les doubles accolades sont un moyen pour Angular de reconnaître et traiter les expressions dynamiques. Lorsqu'Angular voit une expression entre {{ }}, il sait qu'il doit l'évaluer et insérer le résultat dans le HTML.
+
+Évaluation dynamique : Entre les accolades, tu peux écrire des expressions JavaScript, et Angular va les évaluer. Cela inclut l'accès aux propriétés du composant ou même des calculs simples. Par exemple :
+
+One-way binding (liaison unidirectionnelle) : La liaison de données avec {{ }} est unidirectionnelle. Cela signifie que les données vont du composant vers le template, mais pas l'inverse. 
+Si la valeur de la variable change dans le composant, le template se mettra à jour automatiquement pour refléter ce changement, mais tu ne peux pas modifier la valeur depuis le template.
+ 
+
+
+En résumé : Les doubles accolades {{ }} sont un moyen pour Angular d'évaluer les expressions dynamiques et de lier les données du composant au template en toute sécurité et avec une syntaxe distincte et simple. 
+
+-->
+
+
+
