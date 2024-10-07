@@ -28,7 +28,7 @@ export class LandingPageComponent implements OnInit {
     this.router.navigateByUrl('facesnaps')
   }
 
-  onSumbitForm(form:NgForm) {
+  onSumbitForm(form:NgForm) { // NgForme = type  ,    ngForm = directive
     console.log(form.value);
   }
 }

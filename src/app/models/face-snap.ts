@@ -26,7 +26,7 @@ import { SnapType } from "./snap-type.type";
 
 export class FaceSnap {
 
-    Location?: string;
+    location?: string;
     id: string;
 
     constructor(public title: string,
@@ -48,7 +48,7 @@ export class FaceSnap {
     }
 
     setLocation(location:string): void{
-        this.Location = location;
+        this.location = location;
     }
 
     withLocation(location:string): FaceSnap{

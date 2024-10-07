@@ -57,4 +57,18 @@ export class FaceSnapService { // les services n'ont pas besoin de OnInit
           faceSnap.snap(snapType);
         }
         
+
+        addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string }): void {
+          const newId = this.faceSnaps[this.faceSnaps.length - 1].id + 1; // Logique pour générer un nouvel ID
+          const faceSnap = new FaceSnap(
+              formValue.title,
+              formValue.description,
+              formValue.imageUrl,
+              new Date(),
+              0 // initialisation des snaps à 0
+          );
+
+          this.faceSnaps.push(faceSnap);
+        }
+
 }
