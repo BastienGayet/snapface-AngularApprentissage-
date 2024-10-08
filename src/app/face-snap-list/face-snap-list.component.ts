@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
 import { FaceSnapComponent } from "../face-snap/face-snap.component";
 import { FaceSnapService } from '../services/face-snaps.service';
-import { interval, Subject, take, takeUntil, tap } from 'rxjs';
+import { interval, Observable, Subject, take, takeUntil, tap } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-face-snap-list',
@@ -11,9 +12,20 @@ import { interval, Subject, take, takeUntil, tap } from 'rxjs';
   templateUrl: './face-snap-list.component.html',
   styleUrl: './face-snap-list.component.scss'
 })
-export class FaceSnapListComponent implements OnInit, OnDestroy {
+export class FaceSnapListComponent implements OnInit {
+  
+  faceSnaps$!: Observable<FaceSnap[]>;
 
-  faceSnaps!: FaceSnap[];
+  constructor(private faceSnapService: FaceSnapService) { }
+
+  ngOnInit(): void {
+    this.faceSnaps$ = this.faceSnapService.getFaceSnaps();
+  }
+
+}
+
+/* Ancienne version avant requette HTTP 
+faceSnaps!: FaceSnap[];
   private destroy$!: Subject<boolean>;
 
   ngOnInit(): void { // permet de faire des actions en lancant directement la page 
@@ -31,7 +43,4 @@ export class FaceSnapListComponent implements OnInit, OnDestroy {
   constructor(private faceSnapsService: FaceSnapService) {} // injection de dépendances
   ngOnDestroy(): void {
     this.destroy$.next(true); // une fois que l'obeservable a fini on le detruit 
-  }
-
-
-}
+  } */

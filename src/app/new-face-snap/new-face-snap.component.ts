@@ -5,6 +5,7 @@ import { FaceSnap } from '../models/face-snap';
 import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { FaceSnapService } from '../services/face-snaps.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-face-snap',

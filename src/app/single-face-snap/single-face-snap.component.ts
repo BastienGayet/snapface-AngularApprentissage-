@@ -3,6 +3,7 @@ import { FaceSnap } from '../models/face-snap';
 import { FaceSnapService } from '../services/face-snaps.service';
 import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-single-face-snap',
@@ -12,7 +13,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
     NgClass,
     UpperCasePipe,
     DatePipe,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './single-face-snap.component.html',
   styleUrl: './single-face-snap.component.scss'
@@ -46,8 +47,6 @@ export class SingleFaceSnapComponent implements OnInit {
     this.getFaceSnap();
   
   }
-   
-  
 
  
   constructor(private faceSnapService:FaceSnapService, 
