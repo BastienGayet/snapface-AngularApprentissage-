@@ -1,15 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FaceSnap } from '../models/face-snap';
-import { FaceSnapComponent } from "../face-snap/face-snap.component";
-import { FaceSnapService } from '../services/face-snaps.service';
-import { interval, Observable, Subject, take, takeUntil, tap } from 'rxjs';
-import { HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FaceSnap } from '../../../core/models/face-snap';
+import { FaceSnapService } from '../../../core/services/face-snaps.service';
+import { interval, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-face-snap-list',
-  standalone: true,
-  imports: [FaceSnapComponent],
   templateUrl: './face-snap-list.component.html',
+  standalone: false,
   styleUrl: './face-snap-list.component.scss'
 })
 export class FaceSnapListComponent implements OnInit {
@@ -19,7 +16,7 @@ export class FaceSnapListComponent implements OnInit {
   constructor(private faceSnapService: FaceSnapService) { }
 
   ngOnInit(): void {
-    this.faceSnaps$ = this.faceSnapService.getFaceSnaps();
+    this.faceSnaps$ = this.faceSnapService.getAllFaceSnaps();
   }
 
 }

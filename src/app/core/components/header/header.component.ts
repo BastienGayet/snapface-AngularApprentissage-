@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [
-    RouterLink,
-    RouterLinkActive
-  ],
+  standalone: false,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -20,6 +16,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onAddNewFaceSnap() {
-    this.router.navigateByUrl('/create')
+    this.router.navigateByUrl('facesnaps/create')
   }
 }

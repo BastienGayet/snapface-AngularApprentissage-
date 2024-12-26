@@ -60,7 +60,7 @@ export class FaceSnap {
 
         if(snapType ==='snap'){
             this.addSnap();
-        }else if(snapType ==='unsap') {
+        }else if(snapType ==='unsnap') {
             this.removeSnap();
 
         }

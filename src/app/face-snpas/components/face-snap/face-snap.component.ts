@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { FaceSnap } from '../models/face-snap';
+import { FaceSnap } from '../../../core/models/face-snap';
 import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
-import { FaceSnapService } from '../services/face-snaps.service';
+import { FaceSnapService } from '../../../core/services/face-snaps.service';
 import { Router } from '@angular/router';
 
 /*
@@ -11,11 +11,7 @@ Le tableau imports te permet de déclarer directement toutes les directives,
 */
 @Component({
   selector: 'app-face-snap',
-  standalone: true,
-  imports: [
-    UpperCasePipe,
-    
-  ],
+  standalone: false, 
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
 })
