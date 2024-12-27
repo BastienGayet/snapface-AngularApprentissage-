@@ -6,7 +6,7 @@ import { LandingPageComponent } from './landing-page/components/landing-page.com
 
 export const routes: Routes = [
 
-  {path: 'face-snaps', loadChildren: () => import('./face-snpas/face-snpas.module').then(m => m.FaceSnpasModule)},
+  {path: 'facesnaps', loadChildren: () => import('./face-snpas/face-snpas.module').then(m => m.FaceSnpasModule)},
   {path: '', component : LandingPageComponent} // route par defaut 
 
 ];
