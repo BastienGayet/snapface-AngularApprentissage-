@@ -1,5 +1,5 @@
 # Étape 1 : Utiliser une image Node.js pour construire l'application Angular
-FROM node:16 AS build
+FROM node:23.5 AS build
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -10,13 +10,14 @@ COPY . .
 
 # Installer les dépendances et construire l'application Angular
 RUN npm install
-RUN npm run build --prod
+RUN npm run build --production 
 
 # Étape 2 : Utiliser une image NGINX pour servir l'application Angular
 FROM nginx:alpine
 
 # Copier les fichiers de build Angular dans le répertoire par défaut de NGINX
-COPY --from=build /app/dist/nom-de-votre-app-angular /usr/share/nginx/html
+COPY --from=build /app/dist/snapface /usr/share/nginx/html
+
 
 # Exposer le port 80
 EXPOSE 80
